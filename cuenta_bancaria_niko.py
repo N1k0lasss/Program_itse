@@ -1,3 +1,4 @@
+#   CLase de cuenta bancaria
 class cuenta_bancaria:
     def __init__(self, nro_cuenta, dni, nombre, apellido, saldo=0, cuenta_corriente=False):
         self.nro_cuenta = nro_cuenta
@@ -7,10 +8,12 @@ class cuenta_bancaria:
         self.saldo = saldo
         self.cuenta_corriente = cuenta_corriente
 
+#   Metodo para realizar el deposito
     def deposito(self, cantidad):
         self.saldo += cantidad
         return f"Se ha depositado ${cantidad} al saldo de la cuenta {self.nro_cuenta}"
 
+#   Metodo para realizar la extracción
     def extraccion(self, cantidad):
         if self.cuenta_corriente:
             limite = self.saldo + 10000
@@ -24,7 +27,7 @@ class cuenta_bancaria:
             self.saldo -= cantidad
             return f"Se ha realizado una extracción de ${cantidad}.\nSaldo actual: ${self.saldo}"
 
-# metodo para imprimir el objeto
+#   metodo para imprimir el objeto
     def __str__(self):
         return (
             f"Nro Cuenta: {self.nro_cuenta}\n"
@@ -36,7 +39,7 @@ class cuenta_bancaria:
         )
 
 
-# ingreso de datos
+#   ingreso de datos
 print("INGRESE LOS DATOS DEL DEUDOR")
 print("========================================")
 nro_cuenta = int(input("\nIngrese el nro de la cuenta: "))
@@ -53,6 +56,8 @@ cuenta = cuenta_bancaria(nro_cuenta, dni, nombre,
 
 # bucle principal
 while True:
+    # se imprime el menú de opciones
+    print("MENU DE OPCIONES")
     print("-------------------------")
     print("\n1. Depositar")
     print("2. Extraccion")
@@ -62,6 +67,8 @@ while True:
     print("6. Salir")
     print("-------------------------")
     opcion = input("Ingrese la opcion deseada: ")
+
+# se utiliza un match-case para manejar las diferentes opciones del menú
     match opcion:
         case "1":
             cantidad = float(input("Ingrese la cantidad a depositar: "))
