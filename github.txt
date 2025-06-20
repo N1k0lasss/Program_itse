@@ -24,6 +24,8 @@ git pull origin master
 # crear un repositorio local
 git clone https://github.com/nicolas-goutay/python-para-principiantes.git
 
+todos estos links son ejemplos, no sean pajer@s jajaj
+
 # crear un repositorio local a partir de un repositorio remoto
 git clone https://github.com/nicolas-goutay/python-para-principiantes.git
 
